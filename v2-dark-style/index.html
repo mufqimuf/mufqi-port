@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mufqi Harits — AI Operator &amp; Developer</title>
+<style>
+@font-face{font-family:'Mona Sans SemiCondensed';src:url('https://fonts.cdnfonts.com/s/162024/MonaSansSemiCondensed-ExtraLight.woff') format('woff');font-weight:250;font-display:swap}
+@font-face{font-family:'Mona Sans SemiCondensed';src:url('https://fonts.cdnfonts.com/s/162024/MonaSansSemiCondensed-Medium.woff') format('woff');font-weight:500;font-display:swap}
+@font-face{font-family:'Mona Sans';src:url('https://fonts.cdnfonts.com/s/162024/MonaSans-Regular.woff') format('woff');font-weight:400;font-display:swap}
+:root{--bg:#000;--fg:#fff;--accent:#ff630f;--m1:#949494;--m2:#aaa;--m3:#b8b8b8;--d1:#222;--d2:#333;--ease:cubic-bezier(.44,0,.56,1);--inset:3%}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:'Mona Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--accent);color:#000}
+:focus-visible{outline:2px solid var(--accent);outline-offset:6px;box-shadow:0 0 0 6px #000}
+a{color:inherit;text-decoration:none}
+button{font-family:"PP Neue Montreal",Arial,sans-serif}
+.pill{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#000;border:none;border-radius:999px;min-height:50px;padding:16px 20px;font-size:18px;cursor:pointer;transition:background .25s var(--ease),transform .25s var(--ease)}
+.pill:hover{background:var(--accent);transform:scale(1.04)}
+.pill:active{transform:scale(.98)}
+.section{padding:120px var(--inset)}
+.divider{border-top:1px solid var(--d1)}
+h2.label{font-family:"PP Neue Montreal",Arial,sans-serif;font-size:12px;letter-spacing:.12em;color:var(--m1);text-transform:uppercase;margin-bottom:48px}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px var(--inset);mix-blend-mode:difference}
+nav .clock{font-family:"PP Neue Montreal",Arial,sans-serif;font-size:13px;color:#fff;letter-spacing:.08em}
+.burger{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:8px}
+.burger span{display:block;width:26px;height:2px;background:#fff;transition:transform .3s var(--ease),opacity .3s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.nav-cta{font-size:14px;min-height:40px;padding:10px 16px;background:#fff}
+nav .pill.nav-cta{mix-blend-mode:normal}
+/* MENU SCRIM */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(12px);z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
+.scrim.open{opacity:1;pointer-events:auto}
+.scrim a{font-family:'Mona Sans SemiCondensed';font-weight:250;font-size:clamp(36px,7vw,72px);color:var(--m2);transition:color .25s var(--ease),letter-spacing .25s var(--ease)}
+.scrim a:hover{color:var(--accent);letter-spacing:.04em}
+/* HERO */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--inset) 8vh;position:relative}
+.hero .sub{font-family:"PP Neue Montreal",Arial,sans-serif;font-size:13px;letter-spacing:.14em;color:var(--m2);margin-bottom:16px;text-transform:uppercase}
+.hero h1{font-family:'Mona Sans SemiCondensed';font-weight:500;font-size:clamp(56px,13vw,190px);line-height:.92;letter-spacing:-.02em;text-transform:uppercase}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ch{display:inline-block;transform:translateY(110%);animation:rise .9s var(--ease) forwards}
+.hero h1 .ln:nth-child(2) .ch{animation-delay:.08s}
+@keyframes rise{to{transform:translateY(0)}}
+.hero .meta{display:flex;justify-content:space-between;align-items:flex-end;margin-top:40px;gap:24px;flex-wrap:wrap}
+.hero .loc{font-size:13px;color:var(--m1);font-family:"PP Neue Montreal",Arial,sans-serif;letter-spacing:.08em}
+/* APPROACH */
+.approach p{font-family:'Mona Sans SemiCondensed';font-weight:250;font-size:clamp(24px,3.6vw,52px);line-height:1.15;color:var(--fg);max-width:20ch}
+.approach p em{color:var(--accent);font-style:normal}
+/* FEATURED */
+.featured .num{color:var(--accent);font-family:"PP Neue Montreal",Arial,sans-serif;font-size:13px;letter-spacing:.12em;margin-bottom:12px}
+.featured h3{font-family:'Mona Sans SemiCondensed';font-weight:500;font-size:clamp(40px,8vw,110px);line-height:.95;text-transform:uppercase}
+.featured .caption{color:var(--m1);font-size:14px;margin-top:16px}
+.featured .art{margin:48px 0;border:1px solid var(--d1);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.featured .art svg{width:38%;height:auto;opacity:.9}
+.featured .sum{color:var(--m2);font-size:18px;max-width:52ch;line-height:1.6}
+/* WORK */
+.work{--inset:4%}
+.work table{width:100%;border-collapse:collapse}
+.work td{border-top:1px solid var(--d1);padding:28px 0;vertical-align:middle}
+.work tr:last-child td{border-bottom:1px solid var(--d1)}
+.work .idx{color:var(--m1);font-family:"PP Neue Montreal",Arial,sans-serif;font-size:13px;width:8%}
+.work .pname{font-family:'Mona Sans SemiCondensed';font-weight:500;font-size:clamp(22px,3.4vw,44px);width:52%;transition:color .25s var(--ease),transform .25s var(--ease);display:inline-block}
+.work tr:hover .pname{color:var(--accent);transform:translateX(12px)}
+.work .disc,.work .yr{color:var(--m2);font-size:15px;font-family:"PP Neue Montreal",Arial,sans-serif;width:20%}
+/* CAPABILITIES */
+.caps .cap-row{display:grid;grid-template-columns:80px 1fr 1fr;gap:24px;border-top:1px solid var(--d1);padding:36px 0;align-items:baseline}
+.caps .cap-row:last-child{border-bottom:1px solid var(--d1)}
+.caps .cnum{color:var(--accent);font-size:13px;font-family:"PP Neue Montreal",Arial,sans-serif}
+.caps h4{font-family:'Mona Sans SemiCondensed';font-weight:500;font-size:clamp(24px,3vw,40px)}
+.caps .scope{color:var(--m1);font-size:14px;font-family:"PP Neue Montreal",Arial,sans-serif;letter-spacing:.06em}
+.caps .ctext{color:var(--m2);font-size:16px;line-height:1.6;margin-top:12px;grid-column:2/4}
+/* CONTACT */
+.contact{text-align:left;padding-bottom:60px}
+.contact h2{font-family:'Mona Sans SemiCondensed';font-weight:500;font-size:clamp(40px,8vw,120px);line-height:.95;text-transform:uppercase;margin-bottom:40px}
+.contact h2 span{color:var(--accent)}
+footer{display:flex;justify-content:space-between;align-items:center;padding:24px var(--inset);border-top:1px solid var(--d1);color:var(--m1);font-size:13px;font-family:"PP Neue Montreal",Arial,sans-serif;flex-wrap:wrap;gap:12px}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (max-width:768px){
+  :root{--inset:5%}
+  .work .disc{display:none}
+  .work .pname{width:70%}
+  .caps .cap-row{grid-template-columns:48px 1fr}
+  .caps .ctext{grid-column:1/3}
+  .section{padding:80px var(--inset)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="clock" id="clock">00:00:00</div>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <a class="pill nav-cta" href="#contact">Let’s talk ↗</a>
+</nav>
+
+<div class="scrim" id="scrim">
+  <a href="#about">About</a>
+  <a href="#work">Work</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="sub">AI Operator &amp; Developer // Builder of Agentic Systems</div>
+  <h1><span class="ln" data-line1>Mufqi</span> <span class="ln" data-line2>Harits</span></h1>
+  <div class="meta">
+    <div class="loc">Jakarta, Indonesia — <span>GMT+7</span></div>
+    <a class="pill" href="#work">Selected Work ↓</a>
+  </div>
+</header>
+
+<section class="section approach divider reveal" id="about">
+  <h2 class="label">// Design Approach.</h2>
+  <p>Rooted in <em>agentic AI</em>, driven by automation, Mufqi Harits builds autonomous workflows and digital systems that turn complex operations into seamless outcomes. <em>Focus on systems that ship.</em></p>
+</section>
+
+<section class="section featured divider reveal">
+  <h2 class="label">// Featured Project.</h2>
+  <div class="num">URAINOTE [01] AGENTIC</div>
+  <h3><span>UraiNote</span><br><span>Agentic</span></h3>
+  <div class="caption">Agentic RAG Infrastructure</div>
+  <div class="art" aria-hidden="true">
+    <svg viewBox="0 0 200 120" fill="none">
+      <rect x="10" y="10" width="70" height="100" rx="6" stroke="#333" stroke-width="2"/>
+      <rect x="20" y="24" width="50" height="6" rx="3" fill="#ff630f"/>
+      <rect x="20" y="38" width="40" height="6" rx="3" fill="#333"/>
+      <rect x="20" y="52" width="46" height="6" rx="3" fill="#333"/>
+      <path d="M95 60 h20" stroke="#555" stroke-width="2" stroke-dasharray="4 4"/>
+      <circle cx="95" cy="60" r="4" fill="#ff630f"/><circle cx="115" cy="60" r="4" fill="#ff630f"/>
+      <rect x="125" y="20" width="65" height="80" rx="32" stroke="#ff630f" stroke-width="2"/>
+      <circle cx="157" cy="46" r="8" stroke="#fff" stroke-width="2"/>
+      <path d="M143 72 l8 8 m-8 0 l8 -8" stroke="#949494" stroke-width="2"/>
+      <path d="M157 28 l3 6 6 1 -4 5 1 6 -6 -2 -6 2 1 -6 -4 -5 6 -1z" fill="#ff630f"/>
+    </svg>
+  </div>
+  <p class="sum">A BYOK-powered, agentic note-taking system with OmniRoute/DeepSeek integration — minimizing setup time for an ADHD-friendly flow state.</p>
+</section>
+
+<section class="section work divider reveal" id="work">
+  <h2 class="label">// Selected Work.</h2>
+  <table>
+    <tbody id="workRows"></tbody>
+  </table>
+</section>
+
+<section class="section caps divider reveal">
+  <h2 class="label">// Capabilities. // AI Operator Core.</h2>
+  <div id="capRows"></div>
+</section>
+
+<section class="section contact divider reveal" id="contact">
+  <h2>Let’s build <span>systems that matter.</span></h2>
+  <a class="pill" id="mailLink" href="mailto:mufqi@keepmuving.id">Consult with Mufqi ↗</a>
+</section>
+
+<footer>
+  <div><span>AI Operator</span> / <span>Mufqi Harits</span></div>
+  <div><a href="https://linkedin.com/in/mufqiharits" target="_blank" rel="noopener">Linkedin Mufqi ↗</a></div>
+  <div>© 2026 — Jakarta, ID</div>
+</footer>
+
+<script>
+const PERSONA={firstName:'Mufqi',lastName:'Harits',monogram:'MH',role:'AI Operator & Developer',practice:'Building agentic AI systems, automation workflows, and high-conversion content engines.',email:'mufqi@keepmuving.id',location:'Jakarta, Indonesia',socialLinks:['linkedin.com/in/mufqiharits']};
+const PROJECTS=[
+{id:'01',title:'UraiNote Agentic',year:'2026 - Ongoing',discipline:'AI System'},
+{id:'02',title:'keepmuving.id',year:'2026 - Ongoing',discipline:'Content Automation'},
+{id:'03',title:'LinkedIn Operator System',year:'2026 - Ongoing',discipline:'Branding'},
+{id:'04',title:'Routing LLM Model Dashboard',year:'2026 - Ongoing',discipline:'Infrastructure'},
+{id:'05',title:'Agentic Code Refactor',year:'2025',discipline:'Automation'},
+{id:'06',title:'CloneHero AI AutoChart',year:'2025',discipline:'AI Tooling'}];
+const SERVICES=[
+{id:'01',title:'Agentic AI & LLMs',scope:'Systems / Orchestration / RAG',text:'Building autonomous agents that go beyond chatting to actively execute operations.'},
+{id:'02',title:'Automation Workflows (n8n)',scope:'Workflows / Integrations / Pipelines',text:'Designing robust automation pipelines that eliminate manual operational friction.'},
+{id:'03',title:'AI Tool Orchestration',scope:'Routing / Failover / Tooling',text:'Deploying unified AI routing infrastructure that produces scalable outcomes.'}];
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+function renderWork(){
+  const tb=document.getElementById('workRows');
+  tb.innerHTML=PROJECTS.map(p=>
+    `<tr><td class="idx">${p.id}</td><td><span class="pname">${esc(p.title)}</span></td><td class="disc">${esc(p.discipline)}</td><td class="yr">${esc(p.year)}</td></tr>`).join('');
+}
+function renderCaps(){
+  document.getElementById('capRows').innerHTML=SERVICES.map(s=>
+    `<div class="cap-row"><div class="cnum">/${s.id}</div><div><h4>${esc(s.title)}</h4><div class="scope">${esc(s.scope)}</div></div><div></div><div class="ctext">${esc(s.text)}</div></div>`).join('');
+}
+
+/* Clock */
+function tick(){
+  const d=new Date();
+  document.getElementById('clock').textContent=d.toLocaleTimeString('en-GB',{hour12:false})+' JKT';
+}
+setInterval(tick,1000);tick();
+
+/* Menu */
+const burger=document.getElementById('burger'),scrim=document.getElementById('scrim');
+function toggleMenu(open){
+  const o=open??!scrim.classList.contains('open');
+  scrim.classList.toggle('open',o);burger.classList.toggle('open',o);
+  burger.setAttribute('aria-expanded',o);
+}
+burger.onclick=()=>toggleMenu();
+scrim.querySelectorAll('a').forEach(a=>a.onclick=()=>toggleMenu(false));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')toggleMenu(false)});
+
+/* Reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Hero letters */
+document.querySelectorAll('.hero h1 .ln').forEach(ln=>{
+  const txt=ln.textContent;ln.textContent='';
+  [...txt].forEach((ch,i)=>{
+    const s=document.createElement('span');s.className='ch';s.textContent=ch===' '?'\u00A0':ch;
+    s.style.animationDelay=(i*0.045)+'s';ln.appendChild(s);
+  });
+});
+
+renderWork();renderCaps();
+</script>
+</body>
+</html>

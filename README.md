@@ -31,3 +31,18 @@ Currently focused on: AI integration, automation workflows, and personal product
 | `scripts/` | Build & utility scripts |
 | `public/` | Static assets |
 | `preview-home.png` | Homepage screenshot |
+| `v2-dark-style/` | V2 — "Midnight Ember" dark style variant |
+
+## V2 — Midnight Ember (Dark Style)
+
+Dark variant of the live Lightvela design: pure black canvas, white serif display type, warm ember-orange accent `#ff630f`.
+
+![V2 Preview](v2-dark-style/preview-v2-full.png)
+
+| File | Description |
+|------|-------------|
+| `v2-dark-style/index.html` | Full standalone V2 page |
+| `v2-dark-style/preview-v2-full.png` | Full-page screenshot |
+| `v2-dark-style/preview-v2-hero.png` | Hero screenshot |
+
+Sections: Hero → Design Approach → Featured Project (UraiNote Agentic) → Selected Work (6 projects) → Capabilities → Contact.
