@@ -1,33 +1,33 @@
-# mufqi-port
+# Mufqi Harits — Portfolio
 
-Personal portfolio of Mufqi Harits — developer, builder, ADHD survivor. 
+> Personal portfolio of a developer, builder, and independent thinker who works with empathy and ships with impact.
 
-Built with vanilla Node.js + vanilla HTML/CSS/JS. No frameworks, no build step needed.
+---
 
-## Run locally
+## About
 
-```bash
-git clone https://github.com/mufqimuf/mufqi-port.git
-cd mufqi-port
-npm install
-npm start
-```
+This is my personal portfolio — a space where I share who I am, what I build, and how I think.
 
-Then open `http://localhost:3000`
+I specialize in building AI-powered productivity tools, automations, and web applications. Every project I take on starts with understanding the problem deeply before writing a single line of code. High empathy, high impact.
 
-## Deploy
+Currently focused on: AI integration, automation workflows, and personal productivity systems.
 
-The server listens on `0.0.0.0:3000`. Clone, install deps, run — that's it.
+---
 
-```bash
-git clone https://github.com/mufqimuf/mufqi-port.git
-cd mufqi-port
-npm install
-PORT=3000 node server.mjs
-```
+## Preview
 
-## Tech
+![Homepage Preview](preview-home.png)
 
-- Node.js vanilla HTTP server (no Express, no Fastify)
-- Pure HTML + CSS + JS (no React, no Tailwind)
-- Zero runtime dependencies
+---
+
+## What's Inside
+
+| File | Description |
+|------|-------------|
+| `index.html` | Personal portfolio website |
+| `app.config.ts` | Configuration metadata |
+| `server.mjs` | Node.js HTTP server |
+| `package.json` | Project dependencies |
+| `scripts/` | Build & utility scripts |
+| `public/` | Static assets |
+| `preview-home.png` | Homepage screenshot |
