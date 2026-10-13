@@ -35,7 +35,7 @@ Currently focused on: AI integration, automation workflows, and personal product
 
 ## V2 — Midnight Ember (Dark Style)
 
-Dark variant of the live Lightvela design: pure black canvas, white serif display type, warm ember-orange accent `#ff630f`.
+Dark variant of the live Lightvela design: pure black canvas, white serif display type, warm ember-orange accent `#ff630f`. Full-page capture (5332px): hero → design approach → featured project → selected work → capabilities → contact → footer.
 
 ![V2 Preview](v2-dark-style/preview-v2-full.png)
 
@@ -43,6 +43,5 @@ Dark variant of the live Lightvela design: pure black canvas, white serif displa
 |------|-------------|
 | `v2-dark-style/index.html` | Full standalone V2 page |
 | `v2-dark-style/preview-v2-full.png` | Full-page screenshot |
-| `v2-dark-style/preview-v2-hero.png` | Hero screenshot |
 
 Sections: Hero → Design Approach → Featured Project (UraiNote Agentic) → Selected Work (6 projects) → Capabilities → Contact.
